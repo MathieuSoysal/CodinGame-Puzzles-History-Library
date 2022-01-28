@@ -2,20 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- FIXME replace pseudo-->
-    <groupId>io.github.pseudo</groupId>
-    <!-- FIXME replace name -->
-    <artifactId>template</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>io.github.mathieusoysal</groupId>
+    <artifactId>codingame-puzzles-history</artifactId>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
 
-    <!-- FIXME replace template-->
-    <name>template</name>
-    <!-- FIXME replace with the description of your Library-->
-    <description>Library description.</description>
-    <!-- FIXME replace www.example.com-->
-    <url>http://www.example.com</url>
+    <name>CodinGame Puzzles History</name>
+    <description>Java library allowing to interact with the history of CodinGame puzzles via a MongoDB database.</description>
+    <url>https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,7 +30,6 @@
         <maven.install>3.0.0-M1</maven.install>
 
         <!-- SonarCloud properties -->
-        <!-- FIXME replace with your SonarCloud organization on https://sonarcloud.io -->
         <sonar.organization>mathieusoysal</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
@@ -67,41 +61,30 @@
 
     <licenses>
         <license>
-            <!-- FIXME replace with the name of your LICENSE -->
             <name>Apache-2.0 License</name>
-            <!-- FIXME replace with the to your LICENSE url -->
-            <url>https://github.com/MathieuSoysal/Java-Maven-library-template/blob/master/LICENSE</url>
+            <url>https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/blob/main/LICENSE</url>
         </license>
     </licenses>
 
     <developers>
         <developer>
-            <!-- FIXME replace with your name -->
             <name>Mathieu SOYSAL</name>
-            <!-- FIXME replace with your email -->
             <email>Mathieu.Soysal@outlook.fr</email>
-            <!-- FIXME replace with your site (optional) -->
             <url>https://MathieuSoysal.me/</url>
-            <!-- FIXME replace with your organization (optional) -->
             <organization>com.github.devlab-umontp</organization>
-            <!-- FIXME replace with your organization URL (optional) -->
             <organizationUrl>https://github.com/DevLab-umontp</organizationUrl>
         </developer>
     </developers>
 
     <issueManagement>
         <system>github</system>
-        <!-- FIXME replace the link to your issues -->
-        <url>https://github.com/MathieuSoysal/Java-Maven-library-template/issues</url>
+        <url>https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/issues</url>
     </issueManagement>
 
     <scm>
-        <!-- FIXME replace GITHUB-USERNAME to the GitHub username and replace GITHUB-REPOSITORY to the repository name -->
-        <connection>scm:git:git://github.com/GITHUB-USERNAME/GITHUB-REPOSITORY.git</connection>
-        <!-- FIXME replace GITHUB-USERNAME to the GitHub username and replace GITHUB-REPOSITORY to the repository name -->
-        <developerConnection>scm:git:ssh://github.com:GITHUB-USERNAME/GITHUB-REPOSITORY.git</developerConnection>
-        <!-- FIXME replace GITHUB-USERNAME to the GitHub username and replace GITHUB-REPOSITORY to the repository name -->
-        <url>http://github.com/GITHUB-USERNAME/GITHUB-REPOSITORY</url>
+        <connection>scm:git:git://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library.git</connection>
+        <developerConnection>scm:git:ssh://github.com:MathieuSoysal/CodinGame-Puzzles-History-Library.git</developerConnection>
+        <url>http://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library</url>
     </scm>
 
     <profiles>
@@ -197,10 +180,10 @@
             <distributionManagement>
                 <repository>
                     <id>github</id>
-                    <!-- FIXME replace GITHUB-USERNAME to the GitHub username -->
-                    <name>GitHub GITHUB-USERNAME Apache Maven Packages</name>
-                    <!-- FIXME replace GITHUB-USERNAME to the GitHub username and replace GITHUB-REPOSITORY to the repository name -->
-                    <url>https://maven.pkg.github.com/GITHUB-USERNAME/GITHUB-REPOSITORY</url>
+                    <!-- FIXME replace MathieuSoysal to the GitHub username -->
+                    <name>GitHub MathieuSoysal Apache Maven Packages</name>
+                    <!-- FIXME replace MathieuSoysal to the GitHub username and replace CodinGame-Puzzles-History-Library to the repository name -->
+                    <url>https://maven.pkg.github.com/MathieuSoysal/CodinGame-Puzzles-History-Library</url>
                 </repository>
             </distributionManagement>
         </profile>
@@ -245,8 +228,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <!-- FIXME replace io.github.pseudo.App-->
-                                    <mainClass>io.github.pseudo.App</mainClass>
+                                    <mainClass>io.github.mathieusoysal.App</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
