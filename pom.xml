@@ -36,6 +36,11 @@
 
     <dependencies>
         <!-- Dependencies -->
+        <dependency>
+            <groupId>io.github.mathieusoysal</groupId>
+            <artifactId>codingame-puzzles-stats</artifactId>
+            <version>1.0.2</version>
+        </dependency>
 
 
         <!-- Testing dependencies-->
