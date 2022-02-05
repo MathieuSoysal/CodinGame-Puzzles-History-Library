@@ -4,7 +4,7 @@
 ![GitHub Actions](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/workflows/Java%20CI%20with%20Maven/badge.svg)
 [![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://mathieusoysal.github.io/CodinGame-Puzzles-History-Library/javadoc/)
 
-# <img src="https://www.svgrepo.com/show/232495/java.svg" width="100"> CodinGame Puzzles stats library [![GitHub](https://img.shields.io/badge/license-GNU%20General%20Public%20License%20v3.0-green)](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/blob/master/LICENSE)
+# <img src="https://www.svgrepo.com/show/232495/java.svg" width="100"> CodinGame Puzzles Puzzles library [![GitHub](https://img.shields.io/badge/license-GNU%20General%20Public%20License%20v3.0-green)](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/blob/master/LICENSE)
 
 Simple library for interacting with a MongoDB database containing the puzzles statistics history of CodinGame.
 
