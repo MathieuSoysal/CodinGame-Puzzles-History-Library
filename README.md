@@ -1,49 +1,62 @@
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=MathieuSoysal_Java-Maven-library-template&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=MathieuSoysal_Java-Maven-library-template)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=MathieuSoysal_Java-Maven-library-template&metric=coverage)](https://sonarcloud.io/summary/new_code?id=MathieuSoysal_Java-Maven-library-template)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=MathieuSoysal_Java-Maven-library-template&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=MathieuSoysal_Java-Maven-library-template)
-![GitHub Actions](https://github.com/MathieuSoysal/Java-Maven-library-template/workflows/Java%20CI%20with%20Maven/badge.svg)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md) 
-[![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://mathieusoysal.github.io/Java-Maven-library-template/javadoc/)
+![Maven Central](https://img.shields.io/maven-central/v/io.github.mathieusoysal/codingame-puzzles-stats-history)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=MathieuSoysal_CodinGame-Puzzles-History-Library&metric=coverage)](https://sonarcloud.io/summary/new_code?id=MathieuSoysal_CodinGame-Puzzles-History-Library)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=MathieuSoysal_CodinGame-Puzzles-History-Library&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=MathieuSoysal_CodinGame-Puzzles-History-Library)
+![GitHub Actions](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/workflows/Java%20CI%20with%20Maven/badge.svg)
+[![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://mathieusoysal.github.io/CodinGame-Puzzles-History-Library/javadoc/)
 
+# <img src="https://www.svgrepo.com/show/232495/java.svg" width="100"> CodinGame Puzzles stats library [![GitHub](https://img.shields.io/badge/license-GNU%20General%20Public%20License%20v3.0-green)](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/blob/master/LICENSE)
 
-# <img src="https://cdn.iconscout.com/icon/free/png-512/java-43-569305.png" width="100"> Java Maven Library Template [![GitHub](https://img.shields.io/badge/license-Apache%202.0%20License-green)](LICENSE)
+Simple library for interacting with CodinGame's puzzle API.
 
-Template to easily create a Java Maven library and publish it automatically on GitHub Package and Maven Central, the publication is automated via the repo versions.
+## How to integrate the CodinGame-Puzzles-Stats-library into your code
 
-## Use template
+**Required Java version :** 17
+**Required MongoDB database**
 
-To use this template, you just need to click on "Use this template" at the top of the main page of this repository, or you can copy/paste this repository.
+### Maven 
 
-## Requirements
-- [ ] [Create an account on Sonatype](https://issues.sonatype.org/secure/Signup!default.jspa)
-- [ ] [Create a JIRA ticket on Sonatype to approve your groupId (io.github.YOUR-GITHUB-USERNAME)](https://issues.sonatype.org/secure/CreateIssue.jspa?issuetype=21&pid=10134)
-- [ ] [Generate a gpg key and distribute the public key to a keyserver](https://central.sonatype.org/publish/requirements/gpg/)
+If you have Maven, add the following to the dependencies of your `pom.xml` file:
 
-## Template configurations :
-
-- [ ] **Fix pom.xml**
-  - *To guide you, a FIXME tag has been added to all lines to be edited.*
-- [ ] **Config SonarCloud**
-  - To configure SonarCloud for your project you must go to https://sonarcloud.io
-  - Replace the file at [/.github/workflows/sonar.yml](.github/workflows/sonar.yml) with your own yaml file at https://sonarcloud.io and if your Java project is not on Java 11 edit that yaml file.
-- [ ] **Create your GitHub secrets on your repository**
-  - *NEXUS_USERNAME* with your username used on Sonatype
-  - *NEXUS_PASSWORD* with your password used on Sonatype
-  - *GPG_PRIVATE_KEY* with the private key of your generated pgp key
-  - *GPG_PASSPHRASE* with the passphrase of your gpg key
-- [ ] **Activate the JavaDoc GitHub page**
-  - To enable the JavaDoc GitHub Page, you need to enable the GitHub page in your repository settings for the *javadoc* branch.
-
-## Badges
-
-Don't forget to add your own SonarCloud badges to your readme 😉
- - to get your maven-central badge : https://shields.io/category/platform-support
- - to get your JavaDoc Badge : 
-```Markdown
-  [![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://<github-username>.github.io/<github-repo>/javadoc/)
+```xml
+<dependency>
+  <groupId>io.github.mathieusoysal</groupId>
+  <artifactId>codingame-puzzles-stats-history</artifactId>
+  <version>1.0.0</version>
+</dependency>
 ```
-On the link of JavaDoc badge, replace  `<github-username>` by your GitHub username, `<github-repo>` by the name of your GitHub repository.
 
-## Contact
+>*See an example of a [pom.xml](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/blob/d8bdf1a7f1002e387bfae0beb255638f59e3c8b9/ressources-readme/pom-exemple.xml#L20-L24) file with the CodinGame-Puzzles-History-Library*
+### Gradle
 
-If you have any problems setting up CI, CD or other, do not hesitate to contact me at Mathieu.Soysal@etu.umontpellier.fr
+If you are using Gradle, add the following to the dependencies of your `build.gradle` file:
+
+```
+    implementation 'io.github.mathieusoysal:codingame-puzzles-stats-history:1.0.2'
+```
+
+## Example code for using the CodinGame-Puzzles-Stats library
+
+```java
+import com.github.mathieusoysal.CodinGameHistory;
+
+public class CodeExemple {
+
+    public static void main(String[] args) {
+        CodinGameHistory codinGameHistory = new CodinGameHistory(mongoClient, "CodinGame-stats");
+
+        // Get all puzzles statistics of 2020/01/01
+        List<DatedPuzzle> puzzles = codinGameHistory.getPuzzlesOf(LocalDate.of(2020, 1, 1));
+
+        // Get all puzzles statistics between two dates
+        List<DatedPuzzle> puzzles = codinGameHistory.getPuzzlesBetweenTwoDate(
+              LocalDate.of(2020, 1, 1), LocalDate.of(2020, 1, 1));
+    }
+}
+```
+>*See more [code exemples](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/blob/master/ressources-readme/CodeExemple.java)*
+## Contribution
+Suggestions and contributions are always welcome! Please discuss larger changes via an [issue](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/issues) before submitting a request.
+
+## Licence
+
+This project is released under the [GNU General Public License v3.0](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/blob/master/LICENSE)
