@@ -16,25 +16,62 @@ import org.bson.Document;
 
 import io.github.mathieusoysal.model.DatedPuzzle;
 
+/**
+ * This class is used to access the CodinGame's puzzles history.
+ * 
+ * @author MathieuSoysal
+ * @see AbstractDao
+ */
 public class DatedPuzzlesDao extends AbstractDao {
+
+        /**
+         * The collection name where the puzzles history is stored.
+         */
         public static final DateTimeFormatter DATE_TIME_MONGODB_FORMAT = DateTimeFormatter
                         .ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'+00:00'");
+
+        /**
+         * The convertor used to convert the {@link DatedPuzzle} to a {@link Document}.
+         */
         public static final Gson gson = new GsonBuilder()
                         .setDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSSXXX")
                         .create();
+
+        /**
+         * The collection name where the puzzles history is stored.
+         */
         public static final String PUZZLES_HISTORY_COLLECTION = "puzzles-history";
 
         private MongoCollection<Document> collection;
 
+        /**
+         * Creates a new instance of {@link DatedPuzzlesDao}.
+         * 
+         * @param mongoClient  the {@link MongoClient} used to access the database.
+         * @param databaseName the name of the database.
+         */
         public DatedPuzzlesDao(MongoClient mongoClient, String databaseName) {
                 super(mongoClient, databaseName);
                 collection = db.getCollection(PUZZLES_HISTORY_COLLECTION);
         }
 
+        /**
+         * Returns the puzzles of the given date.
+         * 
+         * @param date the date of the puzzles.
+         * @return the puzzles of the given date.
+         */
         public List<DatedPuzzle> getPuzzlesOf(LocalDate date) {
                 return getPuzzlesBetweenTwoDate(date, date);
         }
 
+        /**
+         * Returns the puzzles between the two given dates.
+         * 
+         * @param from the first date.
+         * @param to   the last date.
+         * @return the puzzles between the two given dates.
+         */
         public List<DatedPuzzle> getPuzzlesBetweenTwoDate(LocalDate from, LocalDate to) {
                 var result = new ArrayList<Document>();
                 var queryBetweenTwoDate = createQueryBetweenTwoDate(from, to);
