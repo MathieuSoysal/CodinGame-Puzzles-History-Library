@@ -11,6 +11,7 @@ Simple library for interacting with a MongoDB database containing the puzzles st
 ## How to integrate the CodinGame-Puzzles-Stats-history into your code
 
 **Required Java version :** 17
+
 **Required MongoDB database**
 
 ### Maven 
