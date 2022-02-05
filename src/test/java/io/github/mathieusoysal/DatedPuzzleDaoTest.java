@@ -52,4 +52,24 @@ class DatedPuzzleDaoTest extends MongoDBMock {
                 assertEquals(1, puzzles.get(0).getPuzzle().getId());
         }
 
+        @Test
+        void testGetPuzzlesBetweenTwoDates() {
+                mongoClient.getDatabase("CodinGame-stats")
+                                .getCollection(DatedPuzzlesDao.PUZZLES_HISTORY_COLLECTION)
+                                .insertMany(Arrays.asList(
+                                                new Document("date", "2020-01-01T00:00:00.000+00:00")
+                                                                .append("puzzle", new Document("id", "1")),
+                                                new Document("date", "2020-02-01T00:00:00.000+00:00")
+                                                                .append("puzzle", new Document("id", "2")),
+                                                new Document("date", "2020-03-01T00:00:00.000+00:00")
+                                                                .append("puzzle", new Document("id", "3"))));
+
+                List<DatedPuzzle> puzzles = puzzleDao.getPuzzlesBetweenTwoDate(LocalDate.of(2020, 1, 1),
+                                LocalDate.of(2020, 2, 1));
+
+                assertEquals(2, puzzles.size());
+                assertEquals(1, puzzles.get(0).getPuzzle().getId());
+                assertEquals(2, puzzles.get(1).getPuzzle().getId());
+        }
+
 }

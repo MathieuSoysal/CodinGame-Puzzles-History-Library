@@ -47,4 +47,8 @@ public class DatedPuzzlesDao extends AbstractDao {
                                 .append("$lte", DATE_TIME_MONGODB_FORMAT.format(dateTo));
         }
 
+        public List<DatedPuzzle> getPuzzlesBetweenTwoDate(LocalDate of, LocalDate of2) {
+                return null;
+        }
+
 }
