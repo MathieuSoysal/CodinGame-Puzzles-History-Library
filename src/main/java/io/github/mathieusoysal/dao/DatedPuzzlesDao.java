@@ -32,23 +32,24 @@ public class DatedPuzzlesDao extends AbstractDao {
         }
 
         public List<DatedPuzzle> getPuzzlesOf(LocalDate date) {
-                var result = new ArrayList<Document>();
-                var queryBetweenTwoDate = createQueryBetweenTwoDate(date);
-                collection.find(new Document("date", queryBetweenTwoDate)).into(result);
-                return result.parallelStream().map(Document::toJson).map(d -> gson.fromJson(d, DatedPuzzle.class)).toList();
+                return getPuzzlesBetweenTwoDate(date, date);
         }
 
-        private Document createQueryBetweenTwoDate(LocalDate givenDate) {
-                var dateFrom = LocalDateTime.of(givenDate.getYear(), givenDate.getMonthValue(),
-                                givenDate.getDayOfMonth(), 0, 0, 0);
-                var dateTo = LocalDateTime.of(givenDate.getYear(), givenDate.getMonthValue(),
-                                givenDate.getDayOfMonth(), 23, 59, 59);
+        public List<DatedPuzzle> getPuzzlesBetweenTwoDate(LocalDate from, LocalDate to) {
+                var result = new ArrayList<Document>();
+                var queryBetweenTwoDate = createQueryBetweenTwoDate(from, to);
+                collection.find(new Document("date", queryBetweenTwoDate)).into(result);
+                return result.parallelStream().map(Document::toJson).map(d -> gson.fromJson(d, DatedPuzzle.class))
+                                .toList();
+        }
+
+        private Document createQueryBetweenTwoDate(LocalDate givenDateFrom, LocalDate givenDateTo) {
+                var dateFrom = LocalDateTime.of(givenDateFrom.getYear(), givenDateFrom.getMonthValue(),
+                                givenDateFrom.getDayOfMonth(), 0, 0, 0);
+                var dateTo = LocalDateTime.of(givenDateTo.getYear(), givenDateTo.getMonthValue(),
+                                givenDateTo.getDayOfMonth(), 23, 59, 59);
                 return new Document("$gte", DATE_TIME_MONGODB_FORMAT.format(dateFrom))
                                 .append("$lte", DATE_TIME_MONGODB_FORMAT.format(dateTo));
-        }
-
-        public List<DatedPuzzle> getPuzzlesBetweenTwoDate(LocalDate of, LocalDate of2) {
-                return null;
         }
 
 }
