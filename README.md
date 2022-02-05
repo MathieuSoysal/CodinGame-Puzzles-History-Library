@@ -6,9 +6,9 @@
 
 # <img src="https://www.svgrepo.com/show/232495/java.svg" width="100"> CodinGame Puzzles stats library [![GitHub](https://img.shields.io/badge/license-GNU%20General%20Public%20License%20v3.0-green)](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/blob/master/LICENSE)
 
-Simple library for interacting with CodinGame's puzzle API.
+Simple library for interacting with a MongoDB database containing the puzzles statistics history of CodinGame.
 
-## How to integrate the CodinGame-Puzzles-Stats-library into your code
+## How to integrate the CodinGame-Puzzles-Stats-history into your code
 
 **Required Java version :** 17
 **Required MongoDB database**
@@ -31,7 +31,7 @@ If you have Maven, add the following to the dependencies of your `pom.xml` file:
 If you are using Gradle, add the following to the dependencies of your `build.gradle` file:
 
 ```
-    implementation 'io.github.mathieusoysal:codingame-puzzles-stats-history:1.0.2'
+    implementation 'io.github.mathieusoysal:codingame-puzzles-stats-history:1.0.0'
 ```
 
 ## Example code for using the CodinGame-Puzzles-Stats library
