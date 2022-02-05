@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.github.mathieusoysal"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.github.mathieusoysal"},{"l":"io.github.mathieusoysal.dao"},{"l":"io.github.mathieusoysal.model"}];updateSearchResults();

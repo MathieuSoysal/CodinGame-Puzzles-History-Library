@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"io.github.mathieusoysal","l":"App"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"io.github.mathieusoysal","l":"CodinGameHistory"},{"p":"io.github.mathieusoysal.model","l":"DatedPuzzle"},{"p":"io.github.mathieusoysal.dao","l":"DatedPuzzlesDao"}];updateSearchResults();
