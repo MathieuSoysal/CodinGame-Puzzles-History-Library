@@ -59,4 +59,4 @@ Suggestions and contributions are always welcome! Please discuss larger changes 
 
 ## Licence
 
-This project is released under the [GNU General Public License v3.0](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/blob/master/LICENSE)
+This project is released under the [Apache License 2.0](https://github.com/MathieuSoysal/CodinGame-Puzzles-History-Library/blob/master/LICENSE)
