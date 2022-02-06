@@ -1,5 +1,5 @@
 
-package io.github.mathieusoysal;
+package io.github.mathieusoysal.dao;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,7 +13,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import io.github.mathieusoysal.dao.DatedPuzzlesDao;
 import io.github.mathieusoysal.model.DatedPuzzle;
 import io.github.mathieusoysal.util.MongoDBMock;
 
