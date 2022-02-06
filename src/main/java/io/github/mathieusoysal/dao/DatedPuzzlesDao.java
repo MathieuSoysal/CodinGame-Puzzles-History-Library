@@ -104,21 +104,22 @@ public class DatedPuzzlesDao extends AbstractDao {
 	 * Returns the statistics history of puzzle corresponding to the given puzzle
 	 * ids and with the given date.
 	 * 
+	 * @param date 	the date of the puzzles statistics to get.
 	 * @param puzzleIds the puzzle ids.
 	 * @return the statistics history of puzzle corresponding to the given puzzle
 	 *         ids.
 	 * @see DatedPuzzle
 	 */
-	public List<DatedPuzzle> getStatisticsOf(LocalDate date, String... puzzlesIds) {
-		return getStatisticsOf(date, date, puzzlesIds);
+	public List<DatedPuzzle> getStatisticsOf(LocalDate date, String... puzzleIds) {
+		return getStatisticsOf(date, date, puzzleIds);
 	}
 
 	/**
 	 * Returns the statistics history of puzzle corresponding to the given puzzle
 	 * ids and between the given two dates.
 	 * 
-	 * @param from the first date.
-	 * @param to   the last date.
+	 * @param dateFrom the first date of the puzzles statistics to get.
+	 * @param dateTo   the last date of the puzzles statistics to get.
 	 * @param puzzleIds the puzzle ids.
 	 * @return the statistics history of puzzle corresponding to the given puzzle
 	 *         ids.
