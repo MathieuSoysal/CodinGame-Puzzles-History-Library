@@ -71,4 +71,14 @@ class DatedPuzzleDaoTest extends MongoDBMock {
                 assertEquals(2, puzzles.get(1).getPuzzle().getId());
         }
 
+        @Test
+        void testGetHistoryOfPuzzle() {
+                List<DatedPuzzle> puzzles = puzzleDao.getStatisticsOf("5");
+
+                assertEquals(3, puzzles.size());
+                assertEquals(5, puzzles.get(0).getPuzzle().getId());
+                assertEquals(5, puzzles.get(1).getPuzzle().getId());
+                assertEquals(5, puzzles.get(2).getPuzzle().getId());
+        }
+
 }

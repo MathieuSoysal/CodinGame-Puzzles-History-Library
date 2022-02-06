@@ -89,4 +89,8 @@ public class DatedPuzzlesDao extends AbstractDao {
                                 .append("$lte", DATE_TIME_MONGODB_FORMAT.format(dateTo));
         }
 
+        public List<DatedPuzzle> getStatisticsOf(String string) {
+            return null;
+        }
+
 }
