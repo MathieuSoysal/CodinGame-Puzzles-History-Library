@@ -85,16 +85,45 @@ public class DatedPuzzlesDao extends AbstractDao {
 		return convertToDatedListPuzzles(result);
 	}
 
+	/**
+	 * Returns the statistics history of puzzle corresponding to the given puzzle
+	 * ids.
+	 * 
+	 * @param puzzleIds the puzzle ids.
+	 * @return the statistics history of puzzle corresponding to the given puzzle
+	 *         ids.
+	 * @see DatedPuzzle
+	 */
 	public List<DatedPuzzle> getStatisticsOf(String... puzzleIds) {
 		var result = new ArrayList<Document>();
 		collection.find(in("puzzle.id", puzzleIds)).into(result);
 		return convertToDatedListPuzzles(result);
 	}
 
+	/**
+	 * Returns the statistics history of puzzle corresponding to the given puzzle
+	 * ids and with the given date.
+	 * 
+	 * @param puzzleIds the puzzle ids.
+	 * @return the statistics history of puzzle corresponding to the given puzzle
+	 *         ids.
+	 * @see DatedPuzzle
+	 */
 	public List<DatedPuzzle> getStatisticsOf(LocalDate date, String... puzzlesIds) {
 		return getStatisticsOf(date, date, puzzlesIds);
 	}
 
+	/**
+	 * Returns the statistics history of puzzle corresponding to the given puzzle
+	 * ids and between the given two dates.
+	 * 
+	 * @param from the first date.
+	 * @param to   the last date.
+	 * @param puzzleIds the puzzle ids.
+	 * @return the statistics history of puzzle corresponding to the given puzzle
+	 *         ids.
+	 * @see DatedPuzzle
+	 */
 	public List<DatedPuzzle> getStatisticsOf(LocalDate dateFrom, LocalDate dateTo, String... puzzleIds) {
 		var result = new ArrayList<Document>();
 		collection.find(and(
