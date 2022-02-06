@@ -24,6 +24,25 @@ class DatedPuzzleDaoTest extends MongoDBMock {
         public void setUp() throws Exception {
                 super.setUp();
                 puzzleDao = new DatedPuzzlesDao(mongoClient, "CodinGame-stats");
+                mongoClient.getDatabase("CodinGame-stats")
+                                .getCollection(DatedPuzzlesDao.PUZZLES_HISTORY_COLLECTION)
+                                .insertMany(Arrays.asList(
+                                                new Document("date", "2020-01-01T00:00:00.000+00:00")
+                                                                .append("puzzle", new Document("id", "1")),
+                                                new Document("date", "2020-02-01T00:00:00.000+00:00")
+                                                                .append("puzzle", new Document("id", "2")),
+                                                new Document("date", "2020-03-01T00:00:00.000+00:00")
+                                                                .append("puzzle", new Document("id", "3")),
+                                                new Document("date", "2020-04-01T00:00:00.000+00:00")
+                                                                .append("puzzle", new Document("id", "4")),
+                                                new Document("date", "2020-05-01T00:00:00.000+00:00")
+                                                                .append("puzzle", new Document("id", "5")),
+                                                new Document("date", "2020-05-02T00:00:00.000+00:00")
+                                                                .append("puzzle", new Document("id", "5")),
+                                                new Document("date", "2020-05-03T00:00:00.000+00:00")
+                                                                .append("puzzle", new Document("id", "5")),
+                                                new Document("date", "2020-06-01T00:00:00.000+00:00")
+                                                                .append("puzzle", new Document("id", "6"))));
         }
 
         @AfterEach
@@ -36,16 +55,6 @@ class DatedPuzzleDaoTest extends MongoDBMock {
 
         @Test
         void testGetPuzzlesOfDate() {
-                mongoClient.getDatabase("CodinGame-stats")
-                                .getCollection(DatedPuzzlesDao.PUZZLES_HISTORY_COLLECTION)
-                                .insertMany(Arrays.asList(
-                                                new Document("date", "2020-01-01T00:00:00.000+00:00")
-                                                                .append("puzzle", new Document("id", "1")),
-                                                new Document("date", "2020-02-01T00:00:00.000+00:00")
-                                                                .append("puzzle", new Document("id", "2")),
-                                                new Document("date", "2020-03-01T00:00:00.000+00:00")
-                                                                .append("puzzle", new Document("id", "3"))));
-
                 List<DatedPuzzle> puzzles = puzzleDao.getPuzzlesOf(LocalDate.of(2020, 1, 1));
 
                 assertEquals(1, puzzles.size());
@@ -54,16 +63,6 @@ class DatedPuzzleDaoTest extends MongoDBMock {
 
         @Test
         void testGetPuzzlesBetweenTwoDates() {
-                mongoClient.getDatabase("CodinGame-stats")
-                                .getCollection(DatedPuzzlesDao.PUZZLES_HISTORY_COLLECTION)
-                                .insertMany(Arrays.asList(
-                                                new Document("date", "2020-01-01T00:00:00.000+00:00")
-                                                                .append("puzzle", new Document("id", "1")),
-                                                new Document("date", "2020-02-01T00:00:00.000+00:00")
-                                                                .append("puzzle", new Document("id", "2")),
-                                                new Document("date", "2020-03-01T00:00:00.000+00:00")
-                                                                .append("puzzle", new Document("id", "3"))));
-
                 List<DatedPuzzle> puzzles = puzzleDao.getPuzzlesBetweenTwoDate(LocalDate.of(2020, 1, 1),
                                 LocalDate.of(2020, 2, 1));
 
