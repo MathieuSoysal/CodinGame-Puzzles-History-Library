@@ -91,4 +91,12 @@ class DatedPuzzleDaoTest extends MongoDBMock {
                                 puzzles.stream().map(p -> p.getPuzzle().getId()).toArray());
         }
 
+        @Test
+        void testStatisticsOf_withManyPuzzleId_withDate() {
+                List<DatedPuzzle> puzzles = puzzleDao.getStatisticsOf(LocalDate.of(2020, 5, 3), "5", "6");
+
+                assertEquals(1, puzzles.size());
+                assertEquals(5, puzzles.get(0).getPuzzle().getId());
+        }
+
 }
