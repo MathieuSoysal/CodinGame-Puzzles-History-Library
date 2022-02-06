@@ -1,6 +1,7 @@
 
 package io.github.mathieusoysal;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
@@ -72,13 +73,22 @@ class DatedPuzzleDaoTest extends MongoDBMock {
         }
 
         @Test
-        void testGetHistoryOfPuzzle() {
+        void testStatisticsOf() {
                 List<DatedPuzzle> puzzles = puzzleDao.getStatisticsOf("5");
 
                 assertEquals(3, puzzles.size());
                 assertEquals(5, puzzles.get(0).getPuzzle().getId());
                 assertEquals(5, puzzles.get(1).getPuzzle().getId());
                 assertEquals(5, puzzles.get(2).getPuzzle().getId());
+        }
+
+        @Test
+        void testStatisticsOf_withManyPuzzleId() {
+                List<DatedPuzzle> puzzles = puzzleDao.getStatisticsOf("5", "6");
+
+                assertEquals(4, puzzles.size());
+                assertArrayEquals(new Integer[] { 5, 5, 5, 6 },
+                                puzzles.stream().map(p -> p.getPuzzle().getId()).toArray());
         }
 
 }

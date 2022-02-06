@@ -98,4 +98,8 @@ public class DatedPuzzlesDao extends AbstractDao {
                                 .toList();
         }
 
+        public List<DatedPuzzle> getStatisticsOf(String string, String string2) {
+                return null;
+        }
+
 }
