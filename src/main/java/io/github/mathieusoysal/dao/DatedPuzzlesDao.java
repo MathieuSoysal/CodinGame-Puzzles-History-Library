@@ -110,8 +110,16 @@ public class DatedPuzzlesDao extends AbstractDao {
                                 .toList();
         }
 
-      public List<DatedPuzzle> getStatisticsOf(LocalDate of, LocalDate of2, String string, String string2) {
-            return null;
+      public List<DatedPuzzle> getStatisticsOf(LocalDate dateFrom, LocalDate dateTo, String... puzzleIds) {
+                  var result = new ArrayList<Document>();
+                  collection.find(and(
+                                    createQueryBetweenTwoDate(dateFrom, dateTo),
+                                    in("puzzle.id", puzzleIds)))
+                                    .into(result);
+                  return result.parallelStream()
+                                    .map(Document::toJson)
+                                    .map(d -> gson.fromJson(d, DatedPuzzle.class))
+                                    .toList();
       }
 
 }
