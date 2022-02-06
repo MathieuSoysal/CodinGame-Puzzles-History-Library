@@ -89,17 +89,13 @@ public class DatedPuzzlesDao extends AbstractDao {
                                 .append("$lte", DATE_TIME_MONGODB_FORMAT.format(dateTo));
         }
 
-        public List<DatedPuzzle> getStatisticsOf(String puzzleId) {
+        public List<DatedPuzzle> getStatisticsOf(String... puzzleIds) {
                 var result = new ArrayList<Document>();
-                collection.find(eq("puzzle.id", puzzleId)).into(result);
+                collection.find(in("puzzle.id", puzzleIds)).into(result);
                 return result.parallelStream()
                                 .map(Document::toJson)
                                 .map(d -> gson.fromJson(d, DatedPuzzle.class))
                                 .toList();
-        }
-
-        public List<DatedPuzzle> getStatisticsOf(String string, String string2) {
-                return null;
         }
 
 }
